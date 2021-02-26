@@ -34,8 +34,8 @@ return async (dispatch) => {
             localStorage.setItem('token',body.token);
             localStorage.setItem('token-init-date',new Date().getTime());
 
-            dispatch(login({uid: body.user.id,
-            name: body.user.firstName},
+            dispatch(login({uid: body.id,
+            name: body.name},
                 ))
         }else
         {
@@ -66,7 +66,6 @@ export const startChecking = () => {
                 ))
         }else
         {
-            Swal.fire('Error',body.message);
             dispatch(checkingFinish());
         }
     }
@@ -75,11 +74,13 @@ export const startChecking = () => {
 const checkingFinish = () => ({type: types.authCheckingFinish});
 
 export const startLogout = () => {
-    //Metodo asincrono para llamar a firebase
+
     return async (dispatch) => {
+        localStorage.clear();
+        dispatch(logout());
     }
 }
 
 export const logout = () => ({
-    type: types.logout
+    type: types.authLogout
 })

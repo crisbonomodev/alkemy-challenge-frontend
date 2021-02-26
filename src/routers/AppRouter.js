@@ -6,7 +6,6 @@ import {
   } from 'react-router-dom';
 import { AuthRouter } from './AuthRouter';
 import { useDispatch, useSelector } from 'react-redux';
-import { useState } from 'react';
 import {PrivateRoute} from './PrivateRoute';
 import {PublicRoute} from './PublicRoute';
 import { MainScreen } from '../components/main/MainScreen';
