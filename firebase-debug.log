@@ -1,0 +1,21 @@
+[debug] [2021-02-03T22:48:19.855Z] ----------------------------------------------------------------------
+[debug] [2021-02-03T22:48:19.858Z] Command:       K:\Program Files\nodejs\node.exe K:\Users\Studio\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2021-02-03T22:48:19.858Z] CLI Version:   9.3.0
+[debug] [2021-02-03T22:48:19.858Z] Platform:      win32
+[debug] [2021-02-03T22:48:19.858Z] Node Version:  v14.15.4
+[debug] [2021-02-03T22:48:19.859Z] Time:          Wed Feb 03 2021 19:48:19 GMT-0300 (Argentina Standard Time)
+[debug] [2021-02-03T22:48:19.859Z] ----------------------------------------------------------------------
+[debug] [2021-02-03T22:48:19.859Z] 
+[debug] [2021-02-03T22:48:19.864Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2021-02-03T22:48:19.864Z] > authorizing via signed-in user
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  D:\Cristian Bonomo\Desarrollo\Freelance\Ricavial\ricavial-sistema
+
