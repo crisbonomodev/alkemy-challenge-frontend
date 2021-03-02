@@ -4,9 +4,8 @@ import { types } from "../types/types";
 
 export const transactionAddStartNew = (transaction) => {
 
-    return async  (dispatch, getState) => {
+    return async  (dispatch) => {
 
-        const {uid,name} = getState().auth;
         try {
             const resp = await fetchWithToken('transaction/',transaction,'POST');
             const body = await resp.json();
@@ -15,10 +14,6 @@ export const transactionAddStartNew = (transaction) => {
             {
                 console.log(body);
                 transaction.id = body.newTransaction.id;
-                transaction.user = {
-                    _id: uid,
-                    name
-                }
                 dispatch(transactionAddNew(transaction));
             }
         } catch (error) {
@@ -59,4 +54,22 @@ export const transactionSetActive = (transaction) => ({
     type: types.transactionSetActive,
     payload: transaction
 
+})
+
+export const transactionStartUpdate = (transaction,id) => {
+    return async (dispatch) => {
+        transaction.id = id
+        const resp = await fetchWithToken('transaction/',transaction,'PUT');
+        const body = await resp.json();
+
+        if(body.ok)
+        {
+            dispatch(transactionUpdate(transaction))
+        }
+    }
+}
+
+export const transactionUpdate = (transaction) => ({
+    type: types.transactionUpdate,
+    payload: transaction
 })

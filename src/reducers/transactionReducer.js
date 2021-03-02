@@ -25,6 +25,12 @@ export const transactionReducer = (state=initialState,action) => {
                 ...state,
                 activeTransaction: action.payload
             }
+        case types.transactionUpdate:
+            return {
+                ...state,
+                transactions: state.transactions.map(
+                    transaction => transaction.id === action.payload.id ? action.payload : transaction)
+            }
         default:
             return state;
     }

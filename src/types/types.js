@@ -17,10 +17,10 @@ export const types = {
     uiOpenModal: '[UI] Open Modal',
     uiCloseModal: '[UI] Close Modal',
     //Transactions
-    transactionAddNew: '[Transaction] add transaction',
-    transactionEdit: '[Transaction] edit transaction',
-    transactionDelete: '[Transaction] delete transaction',
-    transactionStartLoading: '[Transaction] loading transactions',
-    transactionFinishLoading: '[Transaction] transactions loaded',
+    transactionAddNew: '[Transaction] Add transaction',
+    transactionUpdate: '[Transaction] Update transaction',
+    transactionDelete: '[Transaction] Delete transaction',
+    transactionStartLoading: '[Transaction] Loading transactions',
+    transactionFinishLoading: '[Transaction] Transactions loaded',
     transactionSetActive: '[Transaction] Set active transaction'
 }

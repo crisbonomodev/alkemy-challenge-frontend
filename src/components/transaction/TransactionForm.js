@@ -1,6 +1,6 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { transactionAddStartNew } from '../../actions/transaction';
+import { transactionAddStartNew, transactionStartUpdate } from '../../actions/transaction';
 import { useForm } from '../../hooks/useForm';
 import {uiCloseModal} from '../../actions/ui';
 
@@ -9,32 +9,53 @@ export const TransactionForm = () => {
 
     const dispatch = useDispatch();
 
+    const {activeTransaction} = useSelector(state => state.transaction)
+
     const {uid: userId} = useSelector(state => state.auth)
 
-    const [formValues, handleInputChange] = useForm({
+    const [formValues, handleInputChange] = useForm(activeTransaction || {
         concept: '',
         amount: '',
-        type: 'ingreso',
+        type: '',
         category: '',
         date: ''
     });
 
-    
     const {concept, amount, date, type, category} = formValues;
+
+  
     
     const handleSubmit = (e) => {
         e.preventDefault();
-        dispatch(transactionAddStartNew({userId,...formValues}));
+        if(activeTransaction)
+        {
+            
+            dispatch(transactionStartUpdate(formValues,activeTransaction.id));
+        }
+        else
+        {
+            dispatch(transactionAddStartNew({userId,...formValues}));
+        }
         dispatch(uiCloseModal());
     }
+
+    let title = 'New Transaction';
+    let typeInputDisabled = false;
+    
+    if(activeTransaction)
+    {
+        title = 'Edit Transaction';
+        typeInputDisabled = true;
+    }
+
     return (
         <div className="container">
-            <h3>New Transaction</h3>
+            <h3>{title}</h3>
             <form onSubmit={handleSubmit}>
                 <div className="row">
                     <div className="col-sm">
                         <label className="form-label" htmlFor="type">Tipo: </label>
-                        <select className="form-control" name="type" value={type} onChange={handleInputChange} id="">
+                        <select className="form-control" name="type" disabled={typeInputDisabled} value={type} onChange={handleInputChange} id="">
                             <option value="ingreso">Ingreso</option>
                             <option value="egreso">Egreso</option>
                         </select>
