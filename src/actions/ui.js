@@ -21,3 +21,13 @@ type: types.uiStartLoading,
 export const finishLoading = () => ({
     type: types.uiFinishLoading,
     });
+
+//Accion para abrir/cerrar el modal
+
+export const uiOpenModal = () => ({
+    type: types.uiOpenModal
+})
+
+export const uiCloseModal = () => ({
+    type: types.uiCloseModal
+})

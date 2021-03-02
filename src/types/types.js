@@ -14,4 +14,12 @@ export const types = {
     uiRemoveError: '[UI] RemoveError',
     uiStartLoading: '[UI] Start loading',
     uiFinishLoading: '[UI] Finish loading',
+    uiOpenModal: '[UI] Open Modal',
+    uiCloseModal: '[UI] Close Modal',
+    //Transactions
+    transactionAddNew: '[Transaction] add transaction',
+    transactionEdit: '[Transaction] edit transaction',
+    transactionDelete: '[Transaction] delete transaction',
+    transactionStartLoading: '[Transaction] loading transactions',
+    transactionFinishLoading: '[Transaction] transactions loaded'
 }

@@ -31,8 +31,9 @@ const fetchWithToken = (endpoint, data, method = 'GET') => {
         return fetch(url, {
             method,
             headers:{
+                'Content-type':'application/json',
                 'x-access-token': token
-            }
+            },
         });
     }
     else

@@ -1,10 +1,4 @@
 
-/*el state estara vacio cuando no estemos autenticados, y tendra el uid cuando si lo estemos
-{
-    uid:sdqwe1233,
-    name: 'Cristian'
-}
-*/
 
 import { types } from '../types/types';
 

@@ -12,6 +12,7 @@ import { MainScreen } from '../components/main/MainScreen';
 import { startChecking } from '../actions/auth';
 import { useEffect } from 'react';
 import { WaitingComponent } from '../components/auth/components/WaitingComponent';
+import { transactionStartLoading } from '../actions/transaction';
 
 export const AppRouter = () => {
 
@@ -21,6 +22,11 @@ export const AppRouter = () => {
     useEffect(() => {
         dispatch(startChecking());
     }, [dispatch])
+
+    if(uid!== undefined)
+    {
+        dispatch(transactionStartLoading(uid));
+    }
 
     if (checking)
     {
