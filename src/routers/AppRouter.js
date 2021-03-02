@@ -13,19 +13,23 @@ import { startChecking } from '../actions/auth';
 import { useEffect } from 'react';
 import { WaitingComponent } from '../components/auth/components/WaitingComponent';
 import { transactionStartLoading } from '../actions/transaction';
+import { balanceStartLoading } from '../actions/balance';
 
 export const AppRouter = () => {
 
-
     const dispatch = useDispatch();
-    const {checking,uid} = useSelector(state => state.auth)
+    const {checking,uid} = useSelector(state => state.auth);
+
     useEffect(() => {
         dispatch(startChecking());
     }, [dispatch])
 
-    if(uid!== undefined)
+
+    if(uid !== undefined && !checking)
     {
-        dispatch(transactionStartLoading(uid));
+        dispatch(balanceStartLoading(uid))
+        .then(dispatch( transactionStartLoading(uid)));
+        
     }
 
     if (checking)

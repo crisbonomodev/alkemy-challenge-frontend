@@ -38,6 +38,7 @@ export const transactionStartLoading = (id) => {
             const transactionsById = data.filter(transaction => transaction.userId === id);
 
             dispatch(transactionsLoaded(transactionsById));
+
         } catch (error) {
             console.log(error);
         }
@@ -63,7 +64,7 @@ export const transactionStartUpdate = (transaction,id) => {
 
         if(body.ok)
         {
-            dispatch(transactionUpdate(transaction))
+            dispatch(transactionUpdate(transaction));
         }
     }
 }

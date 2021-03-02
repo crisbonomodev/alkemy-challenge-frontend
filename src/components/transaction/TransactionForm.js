@@ -29,7 +29,6 @@ export const TransactionForm = () => {
         e.preventDefault();
         if(activeTransaction)
         {
-            
             dispatch(transactionStartUpdate(formValues,activeTransaction.id));
         }
         else
@@ -41,7 +40,7 @@ export const TransactionForm = () => {
 
     let title = 'New Transaction';
     let typeInputDisabled = false;
-    
+
     if(activeTransaction)
     {
         title = 'Edit Transaction';

@@ -22,5 +22,8 @@ export const types = {
     transactionDelete: '[Transaction] Delete transaction',
     transactionStartLoading: '[Transaction] Loading transactions',
     transactionFinishLoading: '[Transaction] Transactions loaded',
-    transactionSetActive: '[Transaction] Set active transaction'
+    transactionSetActive: '[Transaction] Set active transaction',
+    //Balance
+    balanceLoaded: '[Balance] Balance loaded',
+    balanceUpdateAmount: '[Balance] Update amount',
 }

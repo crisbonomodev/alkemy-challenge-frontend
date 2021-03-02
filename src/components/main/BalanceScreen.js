@@ -1,13 +1,17 @@
 import React from 'react'
+import { useSelector } from 'react-redux';
 import { AddNewFab } from '../ui/AddNewFab';
+import { BalanceEntry } from './components/BalanceEntry';
 import { TransactionEntries } from './components/TransactionEntries';
 
 export const BalanceScreen = () => {
 
 
+    
+
     return (
         <div>
-            <h1>Balance</h1>
+            <BalanceEntry />
             <div className="container-md container-style">
             <TransactionEntries />
             <AddNewFab />
