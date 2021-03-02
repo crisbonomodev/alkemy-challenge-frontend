@@ -1,7 +1,8 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { transactionAddStartNew } from '../../actions/transaction';
-import { useForm } from '../../hooks/useForm'
+import { useForm } from '../../hooks/useForm';
+import {uiCloseModal} from '../../actions/ui';
 
 export const TransactionForm = () => {
 
@@ -24,9 +25,11 @@ export const TransactionForm = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         dispatch(transactionAddStartNew({userId,...formValues}));
+        dispatch(uiCloseModal());
     }
     return (
         <div className="container">
+            <h3>New Transaction</h3>
             <form onSubmit={handleSubmit}>
                 <div className="row">
                     <div className="col-sm">

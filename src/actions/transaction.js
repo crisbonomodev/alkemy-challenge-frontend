@@ -54,3 +54,9 @@ const transactionsLoaded = (transactions) => ({
         type: types.transactionFinishLoading,
         payload: [...transactions]
     });
+
+export const transactionSetActive = (transaction) => ({
+    type: types.transactionSetActive,
+    payload: transaction
+
+})

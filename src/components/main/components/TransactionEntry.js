@@ -1,5 +1,6 @@
 import React from 'react'
 import { useDispatch } from 'react-redux';
+import { transactionSetActive } from '../../../actions/transaction';
 import { uiOpenModal } from '../../../actions/ui';
 
 export const TransactionEntry = (transaction) => {
@@ -8,6 +9,7 @@ export const TransactionEntry = (transaction) => {
     const dispatch = useDispatch();
     
     const handleEdit = () => {
+        dispatch(transactionSetActive(transaction));
         dispatch(uiOpenModal());
     }
 

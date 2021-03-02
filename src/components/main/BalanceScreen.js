@@ -1,4 +1,5 @@
 import React from 'react'
+import { AddNewFab } from '../ui/AddNewFab';
 import { TransactionEntries } from './components/TransactionEntries';
 
 export const BalanceScreen = () => {
@@ -9,6 +10,7 @@ export const BalanceScreen = () => {
             <h1>Balance</h1>
             <div className="container-md">
             <TransactionEntries />
+            <AddNewFab />
             </div>
         </div>
     )

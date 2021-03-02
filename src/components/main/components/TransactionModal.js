@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Modal from 'react-modal';
 import { useDispatch, useSelector } from 'react-redux';
+import { transactionSetActive } from '../../../actions/transaction';
 import { uiCloseModal } from '../../../actions/ui';
 import { TransactionForm } from '../../transaction/TransactionForm';
 
@@ -26,6 +27,7 @@ export const TransactionModal = () => {
       Modal.setAppElement('#root');
 
       const closeModal = () => {
+          dispatch(transactionSetActive(null));
           dispatch(uiCloseModal());
       }
 
