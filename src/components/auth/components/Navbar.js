@@ -16,7 +16,7 @@ export const Navbar = () => {
                 Welcome, {name}
 
             </div>
-            <button className="btn btn-outline-danger" onClick={handleLogout}>
+            <button className="btn-logout " onClick={handleLogout}>
                 <i className="fas fa-sign-out-alt"></i>
                 <span>Logout</span>
             </button>

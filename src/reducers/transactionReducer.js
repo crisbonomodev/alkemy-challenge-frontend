@@ -31,6 +31,11 @@ export const transactionReducer = (state=initialState,action) => {
                 transactions: state.transactions.map(
                     transaction => transaction.id === action.payload.id ? action.payload : transaction)
             }
+        case types.transactionDelete:
+            return {
+                ...state,
+                transactions: state.transactions.filter(transaction => transaction.id !== action.payload)
+            }
         default:
             return state;
     }

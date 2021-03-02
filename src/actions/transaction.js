@@ -12,7 +12,6 @@ export const transactionAddStartNew = (transaction) => {
 
             if (body.ok)
             {
-                console.log(body);
                 transaction.id = body.newTransaction.id;
                 dispatch(transactionAddNew(transaction));
             }
@@ -72,4 +71,22 @@ export const transactionStartUpdate = (transaction,id) => {
 export const transactionUpdate = (transaction) => ({
     type: types.transactionUpdate,
     payload: transaction
+})
+
+export const transactionStartDelete = (transaction) => {
+    return async (dispatch) => {
+        const {id} = transaction;
+        const resp = await fetchWithToken('transaction/',{id},'DELETE');
+        const body = await resp.json();
+
+        if(body.ok)
+        {
+            dispatch(transactionDelete(id))
+        }
+    }
+}
+
+const transactionDelete = (id) =>({
+    type: types.transactionDelete,
+    payload: id
 })

@@ -1,0 +1,15 @@
+.container-style {
+    border: 1px solid black;
+    border-radius: 5px;
+    font-size: 12px;
+}
+
+.row-style {
+    border: 1px solid black;
+    border-radius: 5px;
+    width: 100%;
+
+    &h1 {
+        font-size: 12px;
+    }
+}
