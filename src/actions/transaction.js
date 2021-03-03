@@ -97,3 +97,7 @@ const transactionDelete = (id) =>({
     type: types.transactionDelete,
     payload: id
 })
+
+export const transactionLogoutCleanup = () => ({
+    type: types.transactionLogoutCleanup
+})

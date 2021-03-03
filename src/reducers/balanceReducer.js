@@ -11,10 +11,14 @@ export const balanceReducer = (state = initialState,action) => {
                ...state,
                balance: [...action.payload]
            }
+
        case types.balanceFinishUpdate:
            return{
                ...state,
                balance: [...action.payload]}
+
+        case types.balanceLogoutCleanup:
+            return {balance: []}
        default:
           return state;
    }

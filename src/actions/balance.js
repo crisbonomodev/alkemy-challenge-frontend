@@ -31,7 +31,8 @@ export const balanceAddNewAmount = (transaction) => {
             {
                 const resp = await fetchWithToken('balance/','GET');
                 const data = await resp.json();
-                dispatch(balanceFinishUpdate(data));
+                const newBalance = data.filter(balance => balance.userId === userId);
+                dispatch(balanceFinishUpdate(newBalance));
             }
     
     }
@@ -110,3 +111,7 @@ export const balanceFinishUpdate = (balance) => {
         payload: balance
 }
 }
+
+export const balanceLogoutCleanup = () => ({
+    type: types.balanceLogoutCleanup
+})

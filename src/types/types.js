@@ -23,8 +23,10 @@ export const types = {
     transactionStartLoading: '[Transaction] Loading transactions',
     transactionFinishLoading: '[Transaction] Transactions loaded',
     transactionSetActive: '[Transaction] Set active transaction',
+    transactionLogoutCleanup: '[Transaction] Logout cleanup',
     //Balance
     balanceLoaded: '[Balance] Balance loaded',
     balanceUpdateAmount: '[Balance] Update amount',
-    balanceFinishUpdate: '[Balance] FinishUpdate'
+    balanceFinishUpdate: '[Balance] FinishUpdate',
+    balanceLogoutCleanup: '[Balance] Logout cleanup'
 }
