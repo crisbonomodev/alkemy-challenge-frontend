@@ -26,4 +26,5 @@ export const types = {
     //Balance
     balanceLoaded: '[Balance] Balance loaded',
     balanceUpdateAmount: '[Balance] Update amount',
+    balanceFinishUpdate: '[Balance] FinishUpdate'
 }

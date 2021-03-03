@@ -3,15 +3,17 @@ import { useDispatch, useSelector } from 'react-redux';
 import { transactionAddStartNew, transactionStartUpdate } from '../../actions/transaction';
 import { useForm } from '../../hooks/useForm';
 import {uiCloseModal} from '../../actions/ui';
+import { balanceStartUpdate } from '../../actions/balance';
 
 export const TransactionForm = () => {
 
-
     const dispatch = useDispatch();
 
-    const {activeTransaction} = useSelector(state => state.transaction)
+    const {activeTransaction} = useSelector(state => state.transaction);
 
-    const {uid: userId} = useSelector(state => state.auth)
+    const {uid: userId} = useSelector(state => state.auth);
+
+    const {balance} = useSelector(state => state.balance)
 
     const [formValues, handleInputChange] = useForm(activeTransaction || {
         concept: '',
@@ -30,6 +32,7 @@ export const TransactionForm = () => {
         if(activeTransaction)
         {
             dispatch(transactionStartUpdate(formValues,activeTransaction.id));
+            dispatch(balanceStartUpdate(balance,activeTransaction.amount,amount,type));  
         }
         else
         {

@@ -1,15 +1,18 @@
-import React from 'react'
-import { useSelector } from 'react-redux'
+import React from 'react';
+import { useSelector } from 'react-redux';
 
 export const BalanceEntry = () => {
 
-    const {balance} = useSelector(state => state.balance);
+    const {balance: balanceData} = useSelector(state => state.balance)
+    let balance =0;
 
-    const {balance: amount} = balance;
-
-    return (
-        <div>
-            <h1>Balance: $ {amount} </h1>
-        </div>
-    )
-}
+        if(balanceData !== [])
+        {
+            balanceData.map(balanceItem => balance = balanceItem.balance);
+        }
+        return (
+            <div>
+                <h1>Balance: $ {balance} </h1>
+            </div>
+        )
+};

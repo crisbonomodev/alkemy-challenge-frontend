@@ -1,6 +1,7 @@
 
 import { fetchWithToken } from "../helpers/fetch";
 import { types } from "../types/types";
+import { balanceAddNewAmount, balanceDeleteMovement} from "./balance";
 
 export const transactionAddStartNew = (transaction) => {
 
@@ -12,8 +13,12 @@ export const transactionAddStartNew = (transaction) => {
 
             if (body.ok)
             {
+
                 transaction.id = body.newTransaction.id;
-                dispatch(transactionAddNew(transaction));
+                
+                dispatch(balanceAddNewAmount(transaction))
+                .then(dispatch(transactionAddNew(transaction)));
+                
             }
         } catch (error) {
             console.log(error);
@@ -58,13 +63,13 @@ export const transactionSetActive = (transaction) => ({
 
 export const transactionStartUpdate = (transaction,id) => {
     return async (dispatch) => {
-        transaction.id = id
+        transaction.id = id;
         const resp = await fetchWithToken('transaction/',transaction,'PUT');
         const body = await resp.json();
 
         if(body.ok)
         {
-            dispatch(transactionUpdate(transaction));
+           dispatch(transactionUpdate(transaction));
         }
     }
 }
@@ -82,7 +87,8 @@ export const transactionStartDelete = (transaction) => {
 
         if(body.ok)
         {
-            dispatch(transactionDelete(id))
+            dispatch(balanceDeleteMovement(transaction));
+            dispatch(transactionDelete(id));
         }
     }
 }

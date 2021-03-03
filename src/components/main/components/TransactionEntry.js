@@ -5,7 +5,7 @@ import { uiOpenModal } from '../../../actions/ui';
 import Swal from 'sweetalert2';
 
 export const TransactionEntry = (transaction) => {
-    const {type, category,date,concept,amount,id} = transaction;
+    const {type, category,date,concept,amount} = transaction;
 
     const dispatch = useDispatch();
     

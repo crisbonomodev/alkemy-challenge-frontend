@@ -1,7 +1,7 @@
 import { types } from '../types/types';
 
 const initialState = {
-    balance: 0
+    balance: []
 }
 
 export const balanceReducer = (state = initialState,action) => {
@@ -9,13 +9,12 @@ export const balanceReducer = (state = initialState,action) => {
        case types.balanceLoaded:
            return {
                ...state,
-               balance: action.payload
+               balance: [...action.payload]
            }
-       case types.balanceUpdateAmount:
+       case types.balanceFinishUpdate:
            return{
                ...state,
-               balance: action.payload
-           }
+               balance: [...action.payload]}
        default:
           return state;
    }
